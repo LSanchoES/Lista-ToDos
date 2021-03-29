@@ -1,7 +1,7 @@
 import './styles.css';
 
 import { Todo, TodoList } from './classes';   //Busca index.js por defecto
-import { crearTodoHtml } from './js/components';
+import { crearContadorTodoHtml, crearTodoHtml } from './js/components';
 
 
 export const todoList = new TodoList();
@@ -11,7 +11,8 @@ export const todoList = new TodoList();
 // -- Si el argumento  a enviar
 //es igual al argumento de la función se pueden quitar de ambos lados (ABAJO)
 //Funciona cuando solo hay un elemento
-todoList.todos.forEach( crearTodoHtml ) 
+todoList.todos.forEach( crearTodoHtml) 
+
 
 
 

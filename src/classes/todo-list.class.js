@@ -4,14 +4,16 @@ import { Todo } from "./todo.class";
 export class TodoList {
 
     constructor(){
-        //this.todos = [];   Si no existe se inicializa en cargarLocalStorage()
+        this.todos = [];  // Si no existe se inicializa en cargarLocalStorage()
         this.cargarLocalStorage();
+        
     }
 
     nuevoTodo( todo ){
 
         this.todos.push ( todo )
         this.guardarLocalStorage();
+        
     }
 
     eliminarTodo( id ){
@@ -64,5 +66,6 @@ export class TodoList {
         //poder usar los metodos de cada clase de nuevo :O
         this.todos = this.todos.map( Todo.formJson );
     }
+
 
 }

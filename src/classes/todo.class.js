@@ -10,6 +10,7 @@ export class Todo{
         tempTodo.id = id;
         tempTodo.completado = completado;
         tempTodo.creado = creado;
+
         
 
         return tempTodo;
@@ -22,6 +23,8 @@ export class Todo{
         this.id = new Date().getTime();
         this.completado = false;
         this.creado = new Date();
+
+
 
     }
 }

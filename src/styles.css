@@ -296,13 +296,10 @@ body {
 	position: absolute;
 	right: 0;
 	left: 0;
-	
 }
 
 .filters li {
 	display: inline;
-	font-size: 14px;
-
 }
 
 .filters li a {
@@ -329,7 +326,6 @@ html .clear-completed:active {
 	line-height: 20px;
 	text-decoration: none;
 	cursor: pointer;
-	
 }
 
 .clear-completed:hover {

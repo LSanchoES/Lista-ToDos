@@ -8,7 +8,10 @@ const divTodoList = document.querySelector('.todo-list');
 const txtInput = document.querySelector('.new-todo');
 const btnBorrar = document.querySelector('.clear-completed');
 const ulFiltros = document.querySelector('.filters');
-const anchorFiltros = document.querySelectorAll('.filtro') //etiqueta <a> es anchortags
+const anchorFiltros = document.querySelectorAll('.filtro'); //etiqueta <a> es anchortags
+
+const pendientes = document.querySelector('.todo-count');
+
 
 export const crearTodoHtml = (todo) => {
 
@@ -30,12 +33,26 @@ export const crearTodoHtml = (todo) => {
     divTodoList.append(div.firstElementChild); //Necesitamos crear el div para meter todo el html pero hacemos el append a su prinmer hijo que es el li
 
     return div.firstElementChild;
-
-
 }
 
 //EVENTOS
 //El (event) nos dice la tecla que se presiono
+//CONTADOR PENDIENTES PROPIO
+
+
+const contador = (event)=>{
+    let contador = []
+    
+    for (const elemento of divTodoList.children) {
+
+        let completado = elemento.classList.contains('completed');
+        if (completado === false){
+        contador.push(completado)}
+    }
+
+    pendientes.textContent = `${contador.length}  Pendiente(s).`
+}
+
 
 txtInput.addEventListener('keyup', (event) => {
     //console.log(event);
@@ -50,7 +67,9 @@ txtInput.addEventListener('keyup', (event) => {
 
         crearTodoHtml(nuevoTodo);
         txtInput.value = ''; //Borrar tras poner la entrada
-    };
+
+        contador() 
+    }
 
 
 
@@ -74,6 +93,7 @@ divTodoList.addEventListener('click', (event) => {
     }
 
     //console.log(todoList)
+    contador() 
 });
 
 btnBorrar.addEventListener('click', () => {
@@ -88,6 +108,7 @@ btnBorrar.addEventListener('click', () => {
             divTodoList.removeChild(elemento);
         }
     }
+    contador() 
 })
 
 ulFiltros.addEventListener('click', (event => {
@@ -123,3 +144,8 @@ ulFiltros.addEventListener('click', (event => {
         }
     }
 }))
+
+
+
+
+
